@@ -3,7 +3,6 @@ import React from 'react';
 import bindAll from 'lodash.bindall';
 import ConnectionModalComponent, {PHASES} from '../components/connection-modal/connection-modal.jsx';
 import VM from 'openblock-vm';
-import analytics from '../lib/analytics';
 import extensionData from '../lib/libraries/extensions/index.jsx';
 import {connect} from 'react-redux';
 import {closeConnectionModal} from '../reducers/modals';
@@ -52,11 +51,6 @@ class ConnectionModal extends React.Component {
             phase: PHASES.connecting,
             peripheralName: peripheralName
         });
-        analytics.event({
-            category: 'devices',
-            action: 'connecting',
-            label: this.props.deviceId
-        });
     }
     handleDisconnect () {
         try {
@@ -87,31 +81,16 @@ class ConnectionModal extends React.Component {
             this.setState({
                 phase: PHASES.error
             });
-            analytics.event({
-                category: 'devices',
-                action: 'connecting error',
-                label: this.props.deviceId
-            });
         }
     }
     handleConnected () {
         this.setState({
             phase: PHASES.connected
         });
-        analytics.event({
-            category: 'devices',
-            action: 'connected',
-            label: this.props.deviceId
-        });
         this.props.onConnected(this.state.peripheralName);
     }
     handleHelp () {
         window.open(this.state.extension.helpLink, '_blank');
-        analytics.event({
-            category: 'devices',
-            action: 'device help',
-            label: this.props.deviceId
-        });
     }
     render () {
         return (

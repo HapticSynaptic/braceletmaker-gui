@@ -39,7 +39,7 @@ import backdropLibraryContent from '../lib/libraries/backdrops.json';
 
 let messages = defineMessages({
     addLibraryBackdropMsg: {
-        defaultMessage: 'Choose a Backdrop',
+        defaultMessage: 'Choose number of threads',
         description: 'Button to add a backdrop in the editor tab',
         id: 'gui.costumeTab.addBackdropFromLibrary'
     },

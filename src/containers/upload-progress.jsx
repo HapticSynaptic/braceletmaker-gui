@@ -7,7 +7,6 @@ import {compose} from 'redux';
 import {injectIntl, intlShape, defineMessages} from 'react-intl';
 
 import VM from 'openblock-vm';
-import analytics from '../lib/analytics';
 import {closeUploadProgress} from '../reducers/modals';
 import {showAlertWithTimeout} from '../reducers/alerts';
 
@@ -49,11 +48,6 @@ class UploadProgress extends React.Component {
         // if the upload progress stack some seconds with out any info.
         // set state to timeout let user could colse the modal.
         this.uploadTimeout = setTimeout(() => this.handleUploadTimeout(), UPLOAD_TIMEOUT_TIME);
-        analytics.event({
-            category: 'devices',
-            action: 'uploading',
-            label: this.props.deviceId
-        });
     }
     componentDidMount () {
         this.props.vm.on('PERIPHERAL_UPLOAD_STDOUT', this.handleStdout);
@@ -73,11 +67,6 @@ class UploadProgress extends React.Component {
     }
     handleHelp () {
         window.open(this.state.extension.helpLink, '_blank');
-        analytics.event({
-            category: 'devices',
-            action: 'upload help',
-            label: this.props.deviceId
-        });
     }
     handleStdout (data) {
         this.setState({
@@ -95,11 +84,6 @@ class UploadProgress extends React.Component {
                 phase: PHASES.error
             });
             this.props.onUploadError();
-            analytics.event({
-                category: 'devices',
-                action: 'upload error',
-                label: this.props.deviceId
-            });
             clearTimeout(this.uploadTimeout);
         }
     }
@@ -117,11 +101,6 @@ class UploadProgress extends React.Component {
             phase: PHASES.timeout
         });
         this.props.onUploadError();
-        analytics.event({
-            category: 'devices',
-            action: 'upload timeout',
-            label: this.props.deviceId
-        });
         clearTimeout(this.uploadTimeout);
     }
 

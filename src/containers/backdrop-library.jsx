@@ -1,21 +1,27 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {connect} from 'react-redux';
+import {compose} from 'redux';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import VM from 'openblock-vm';
 
+import sprites from '../lib/libraries/sprites.json';
 import backdropLibraryContent from '../lib/libraries/backdrops.json';
 import backdropTags from '../lib/libraries/backdrop-tags';
 import LibraryComponent from '../components/library/library.jsx';
 
 const messages = defineMessages({
     libraryTitle: {
-        defaultMessage: 'Choose a Backdrop',
+        defaultMessage: 'Choose number of threads',
         description: 'Heading for the backdrop library',
         id: 'gui.costumeLibrary.chooseABackdrop'
     }
 });
 
+const mapStateToProps = (state) => ({
+    scratchGui: state.scratchGui
+});
 
 class BackdropLibrary extends React.Component {
     constructor (props) {
@@ -33,7 +39,11 @@ class BackdropLibrary extends React.Component {
             skinId: null
         };
         // Do not switch to stage, just add the backdrop
-        this.props.vm.addBackdrop(item.md5ext, vmBackdrop);
+        this.props.vm.addBackdrop(item.md5ext, vmBackdrop)
+            .then(() => {
+                Object.values(this.props.scratchGui.targets.sprites).forEach((sprite) => this.props.vm.deleteSprite(sprite.id));
+                item.spriteNames.forEach((spriteName) => this.props.vm.addSprite(JSON.stringify(sprites.find((sprite) => sprite.name === spriteName))));
+            });
     }
     render () {
         return (
@@ -55,4 +65,9 @@ BackdropLibrary.propTypes = {
     vm: PropTypes.instanceOf(VM).isRequired
 };
 
-export default injectIntl(BackdropLibrary);
+export default compose(
+    injectIntl,
+    connect(
+        mapStateToProps
+    )
+)(BackdropLibrary);

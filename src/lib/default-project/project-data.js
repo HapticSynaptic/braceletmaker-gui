@@ -61,7 +61,7 @@ const projectData = translateFunction => {
             },
             {
                 isStage: false,
-                name: translator(messages.sprite, {index: 1}),
+                name: 'Threads',
                 variables: {},
                 lists: {},
                 broadcasts: {},
@@ -69,22 +69,13 @@ const projectData = translateFunction => {
                 currentCostume: 0,
                 costumes: [
                     {
-                        assetId: '5de48e72637db4d7fc7f6bb526354114',
+                        assetId: '5de48e72637db4d7fc7f6bb526354115',
                         name: translator(messages.costume, {index: 1}),
                         bitmapResolution: 1,
-                        md5ext: '5de48e72637db4d7fc7f6bb526354114.svg',
+                        md5ext: '5de48e72637db4d7fc7f6bb526354115.svg',
                         dataFormat: 'svg',
                         rotationCenterX: 48,
                         rotationCenterY: 50
-                    },
-                    {
-                        assetId: '48bbc82a10af3d0e0b7d5c677097df0e',
-                        name: translator(messages.costume, {index: 2}),
-                        bitmapResolution: 1,
-                        md5ext: '48bbc82a10af3d0e0b7d5c677097df0e.svg',
-                        dataFormat: 'svg',
-                        rotationCenterX: 46,
-                        rotationCenterY: 53
                     }
                 ],
                 sounds: [
@@ -100,9 +91,9 @@ const projectData = translateFunction => {
                 ],
                 volume: 100,
                 visible: true,
-                x: -50,
-                y: 10,
-                size: 100,
+                x: -55,
+                y: 50,
+                size: 140,
                 direction: 90,
                 draggable: false,
                 rotationStyle: 'all around'

@@ -565,7 +565,7 @@ class Blocks extends React.Component {
             });
 
         } else {
-            this.props.onDeviceSelected(null, null, null);
+            this.props.onDeviceSelected('arduinoUno', 'Arduino Uno', 'arduino');
             this.props.vm.runtime.setRealtimeMode(true);
             this.props.onSetSupportSwitchMode(false);
         }

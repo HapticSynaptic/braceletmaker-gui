@@ -131,18 +131,6 @@ const initTutorialCard = function (currentState, deckId) {
     );
 };
 
-const initTelemetryModal = function (currentState) {
-    return Object.assign(
-        {},
-        currentState,
-        {
-            modals: {
-                telemetryModal: true // this key must match `MODAL_TELEMETRY` in modals.js
-            }
-        }
-    );
-};
-
 const guiReducer = combineReducers({
     alerts: alertsReducer,
     assetDrag: assetDragReducer,
@@ -186,6 +174,5 @@ export {
     initEmbedded,
     initFullScreen,
     initPlayer,
-    initTelemetryModal,
     initTutorialCard
 };

@@ -11,7 +11,7 @@ const motion = function (isInitialSetup, isStage, targetId) {
         'Stage selected: no motion blocks'
     );
     return `
-    <category name="%{BKY_CATEGORY_MOTION}" id="motion" colour="#4C97FF" secondaryColour="#3373CC">
+    <category name="%{BKY_CATEGORY_MOTION}" id="motion" colour="#9966ff" secondaryColour="#63c">
         ${isStage ? `
         <label text="${stageSelected}"></label>
         ` : `
@@ -384,7 +384,7 @@ const events = function (isInitialSetup, isStage) {
 
 const control = function (isInitialSetup, isStage) {
     return `
-    <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
+    <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#9966FF" secondaryColour="#774DCB">
         <block type="control_wait">
             <value name="DURATION">
                 <shadow type="math_positive_number">
@@ -509,7 +509,7 @@ const operators = function (isInitialSetup) {
     const banana = ScratchBlocks.ScratchMsgs.translate('OPERATORS_JOIN_BANANA', 'banana');
     const letter = ScratchBlocks.ScratchMsgs.translate('OPERATORS_LETTEROF_APPLE', 'a');
     return `
-    <category name="%{BKY_CATEGORY_OPERATORS}" id="operators" colour="#40BF4A" secondaryColour="#389438">
+    <category name="%{BKY_CATEGORY_OPERATORS}" id="operators" colour="#62ddd7" secondaryColour="#40cebb">
         <block type="operator_add">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -696,8 +696,8 @@ const variables = function () {
     <category
         name="%{BKY_CATEGORY_VARIABLES}"
         id="variables"
-        colour="#FF8C1A"
-        secondaryColour="#DB6E00"
+        colour="#fdc611"
+        secondaryColour="#cf9f02"
         custom="VARIABLE">
     </category>
     `;
@@ -708,7 +708,7 @@ const myBlocks = function () {
     <category
         name="%{BKY_CATEGORY_MYBLOCKS}"
         id="myBlocks"
-        colour="#FF6680"
+        colour="#f97e53"
         secondaryColour="#FF4D6A"
         custom="PROCEDURE">
     </category>

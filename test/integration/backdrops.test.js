@@ -32,7 +32,7 @@ describe('Working with backdrops', () => {
         await clickText('Sounds');
 
         // Add a backdrop without selecting the stage first to test switching
-        await clickXpath('//button[@aria-label="Choose a Backdrop"]');
+        await clickXpath('//button[@aria-label="Choose number of threads"]');
         const el = await findByXpath("//input[@placeholder='Search']");
         await el.sendKeys('blue');
         await clickText('Blue Sky'); // Adds the backdrop
@@ -52,7 +52,7 @@ describe('Working with backdrops', () => {
     test('Adding backdrop via paint should switch to stage', async () => {
         await loadUri(uri);
 
-        const buttonXpath = '//button[@aria-label="Choose a Backdrop"]';
+        const buttonXpath = '//button[@aria-label="Choose number of threads"]';
         const paintXpath = `${buttonXpath}/following-sibling::div//button[@aria-label="Paint"]`;
 
         const el = await findByXpath(buttonXpath);
@@ -74,7 +74,7 @@ describe('Working with backdrops', () => {
         // Start on the sounds tab of sprite1 to test switching behavior
         await clickText('Sounds');
 
-        const buttonXpath = '//button[@aria-label="Choose a Backdrop"]';
+        const buttonXpath = '//button[@aria-label="Choose number of threads"]';
         const surpriseXpath = `${buttonXpath}/following-sibling::div//button[@aria-label="Surprise"]`;
 
         const el = await findByXpath(buttonXpath);
@@ -97,7 +97,7 @@ describe('Working with backdrops', () => {
         ];
         await loadUri(uri);
 
-        const buttonXpath = '//button[@aria-label="Choose a Backdrop"]';
+        const buttonXpath = '//button[@aria-label="Choose number of threads"]';
         const fileXpath = `${buttonXpath}/following-sibling::div//input[@type="file"]`;
 
         const el = await findByXpath(buttonXpath);

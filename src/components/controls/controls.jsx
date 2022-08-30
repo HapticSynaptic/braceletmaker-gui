@@ -34,6 +34,7 @@ const Controls = function (props) {
     } = props;
     return (
         <div
+            style={{ display: 'none' }}
             className={classNames(styles.controlsContainer, className)}
             {...componentProps}
         >

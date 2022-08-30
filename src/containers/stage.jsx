@@ -24,9 +24,7 @@ class Stage extends React.Component {
     constructor (props) {
         super(props);
         bindAll(this, [
-            'attachMouseEvents',
             'cancelMouseDownTimeout',
-            'detachMouseEvents',
             'handleDoubleClick',
             'handleQuestionAnswered',
             'onMouseUp',
@@ -72,7 +70,6 @@ class Stage extends React.Component {
     }
     componentDidMount () {
         this.attachRectEvents();
-        this.attachMouseEvents(this.canvas);
         this.updateRect();
         this.props.vm.runtime.addListener('QUESTION', this.questionListener);
     }
@@ -96,7 +93,6 @@ class Stage extends React.Component {
         this.renderer.resize(this.rect.width, this.rect.height);
     }
     componentWillUnmount () {
-        this.detachMouseEvents(this.canvas);
         this.detachRectEvents();
         this.stopColorPickingLoop();
         this.props.vm.runtime.removeListener('QUESTION', this.questionListener);
@@ -118,24 +114,6 @@ class Stage extends React.Component {
     }
     stopColorPickingLoop () {
         clearInterval(this.intervalId);
-    }
-    attachMouseEvents (canvas) {
-        document.addEventListener('mousemove', this.onMouseMove);
-        document.addEventListener('mouseup', this.onMouseUp);
-        document.addEventListener('touchmove', this.onMouseMove);
-        document.addEventListener('touchend', this.onMouseUp);
-        canvas.addEventListener('mousedown', this.onMouseDown);
-        canvas.addEventListener('touchstart', this.onMouseDown);
-        canvas.addEventListener('wheel', this.onWheel);
-    }
-    detachMouseEvents (canvas) {
-        document.removeEventListener('mousemove', this.onMouseMove);
-        document.removeEventListener('mouseup', this.onMouseUp);
-        document.removeEventListener('touchmove', this.onMouseMove);
-        document.removeEventListener('touchend', this.onMouseUp);
-        canvas.removeEventListener('mousedown', this.onMouseDown);
-        canvas.removeEventListener('touchstart', this.onMouseDown);
-        canvas.removeEventListener('wheel', this.onWheel);
     }
     attachRectEvents () {
         window.addEventListener('resize', this.updateRect);

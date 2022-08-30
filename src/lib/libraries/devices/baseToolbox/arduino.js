@@ -11,7 +11,7 @@ const motion = function (isInitialSetup, isStage, targetId) {
         'Stage selected: no motion blocks'
     );
     return `
-    <category name="%{BKY_CATEGORY_MOTION}" id="motion" colour="#4C97FF" secondaryColour="#3373CC">
+    <category name="%{BKY_CATEGORY_MOTION}" id="motion" colour="#9966ff" secondaryColour="#63c">
         ${isStage ? `
         <label text="${stageSelected}"></label>
         ` : `
@@ -332,51 +332,17 @@ const sound = function (isInitialSetup, isStage, targetId, soundName) {
 };
 
 const events = function (isInitialSetup, isStage, targetId, isRealtimeMode) {
-    return `
-    <category name="%{BKY_CATEGORY_EVENTS}" id="events" colour="#FFD500" secondaryColour="#CC9900">
-        ${isRealtimeMode ? `
-            <block type="event_whenflagclicked"/>
-            <block type="event_whenkeypressed">
-            </block>
-            ${isStage ? `
-                <block type="event_whenstageclicked"/>
-            ` : `
-                <block type="event_whenthisspriteclicked"/>
-            `}
-            <block type="event_whenbackdropswitchesto">
-            </block>
-            ${blockSeparator}
-            <block type="event_whengreaterthan">
-                <value name="VALUE">
-                    <shadow type="math_number">
-                        <field name="NUM">10</field>
-                    </shadow>
-                </value>
-            </block>
-            ${blockSeparator}
-            <block type="event_whenbroadcastreceived">
-            </block>
-            <block type="event_broadcast">
-                <value name="BROADCAST_INPUT">
-                    <shadow type="event_broadcast_menu"></shadow>
-                </value>
-            </block>
-            <block type="event_broadcastandwait">
-                <value name="BROADCAST_INPUT">
-                <shadow type="event_broadcast_menu"></shadow>
-                </value>
-            </block>
-        ` : `
+    return isRealtimeMode ? `` : `
+        <category name="%{BKY_CATEGORY_EVENTS}" id="events" colour="#FFD500" secondaryColour="#CC9900">
             <block type="event_whenarduinobegin"/>
-        `}
-        ${categorySeparator}
-    </category>
+            ${categorySeparator}
+        </category>
     `;
 };
 
 const control = function (isInitialSetup, isStage, targetId, isRealtimeMode) {
     return `
-    <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
+    <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#9966FF" secondaryColour="#774DCB">
         <block type="control_wait">
             <value name="DURATION">
                 <shadow type="math_positive_number">
@@ -398,26 +364,6 @@ const control = function (isInitialSetup, isStage, targetId, isRealtimeMode) {
         <block type="control_if_else"/>
         <block id="wait_until" type="control_wait_until"/>
         <block id="repeat_until" type="control_repeat_until"/>
-        ${isRealtimeMode ? `
-            ${blockSeparator}
-            <block type="control_stop"/>
-            ${blockSeparator}
-            ${isStage ? `
-                <block type="control_create_clone_of">
-                    <value name="CLONE_OPTION">
-                        <shadow type="control_create_clone_of_menu"/>
-                    </value>
-                </block>
-            ` : `
-                <block type="control_start_as_clone"/>
-                <block type="control_create_clone_of">
-                    <value name="CLONE_OPTION">
-                        <shadow type="control_create_clone_of_menu"/>
-                    </value>
-                </block>
-                <block type="control_delete_this_clone"/>
-            `}
-        ` : null}
         ${categorySeparator}
     </category>
     `;
@@ -503,7 +449,7 @@ const operators = function (isInitialSetup) {
     const banana = ScratchBlocks.ScratchMsgs.translate('OPERATORS_JOIN_BANANA', 'banana');
     const letter = ScratchBlocks.ScratchMsgs.translate('OPERATORS_LETTEROF_APPLE', 'a');
     return `
-    <category name="%{BKY_CATEGORY_OPERATORS}" id="operators" colour="#40BF4A" secondaryColour="#389438">
+    <category name="%{BKY_CATEGORY_OPERATORS}" id="operators" colour="#62ddd7" secondaryColour="#40cebb">
         <block type="operator_add">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -607,52 +553,6 @@ const operators = function (isInitialSetup) {
         <block type="operator_or"/>
         <block type="operator_not"/>
         ${blockSeparator}
-        ${isInitialSetup ? '' : `
-            <block type="operator_join">
-                <value name="STRING1">
-                    <shadow type="text">
-                        <field name="TEXT">${apple}</field>
-                    </shadow>
-                </value>
-                <value name="STRING2">
-                    <shadow type="text">
-                        <field name="TEXT">${banana}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="operator_letter_of">
-                <value name="LETTER">
-                    <shadow type="math_whole_number">
-                        <field name="NUM">1</field>
-                    </shadow>
-                </value>
-                <value name="STRING">
-                    <shadow type="text">
-                        <field name="TEXT">${apple}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="operator_length">
-                <value name="STRING">
-                    <shadow type="text">
-                        <field name="TEXT">${apple}</field>
-                    </shadow>
-                </value>
-            </block>
-            <block type="operator_contains" id="operator_contains">
-              <value name="STRING1">
-                <shadow type="text">
-                  <field name="TEXT">${apple}</field>
-                </shadow>
-              </value>
-              <value name="STRING2">
-                <shadow type="text">
-                  <field name="TEXT">${letter}</field>
-                </shadow>
-              </value>
-            </block>
-        `}
-        ${blockSeparator}
         <block type="operator_mod">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -690,8 +590,8 @@ const variables = function () {
     <category
         name="%{BKY_CATEGORY_VARIABLES}"
         id="variables"
-        colour="#FF8C1A"
-        secondaryColour="#DB6E00"
+        colour="#fdc611"
+        secondaryColour="#cf9f02"
         custom="VARIABLE">
     </category>
     `;
@@ -702,7 +602,7 @@ const myBlocks = function () {
     <category
         name="%{BKY_CATEGORY_MYBLOCKS}"
         id="myBlocks"
-        colour="#FF6680"
+        colour="#f97e53"
         secondaryColour="#FF4D6A"
         custom="PROCEDURE">
     </category>

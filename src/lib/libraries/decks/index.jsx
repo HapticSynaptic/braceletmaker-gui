@@ -1521,8 +1521,8 @@ export default {
         }, {
             title: (
                 <FormattedMessage
-                    defaultMessage="Choose a Backdrop"
-                    description="Step name for 'Choose a Backdrop' step"
+                    defaultMessage="Choose number of threads"
+                    description="Step name for 'Choose number of threads' step"
                     id="gui.howtos.talking.step_talesChooseBackdrop"
                 />
             ),

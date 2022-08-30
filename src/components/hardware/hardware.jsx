@@ -5,7 +5,6 @@ import classNames from 'classnames';
 
 import {STAGE_SIZE_MODES} from '../../lib/layout-constants';
 import CodeEditor from '../../containers/code-editor.jsx';
-import HardwareConsole from '../../containers/hardware-console.jsx';
 
 import styles from './hardware.css';
 
@@ -18,14 +17,6 @@ const HardwareComponent = props => {
             <Box className={classNames(styles.codeEditorWrapper)}>
                 <CodeEditor
                     width={(stageSizeMode === STAGE_SIZE_MODES.large) ? 480 : 240}
-                />
-            </Box>
-            <Box
-                className={classNames(styles.hardwareConsoleWrapper,
-                    (stageSizeMode === STAGE_SIZE_MODES.large) ? styles.wideWrapper : styles.narrowWrapper)}
-            >
-                <HardwareConsole
-                    {...props}
                 />
             </Box>
         </Box>

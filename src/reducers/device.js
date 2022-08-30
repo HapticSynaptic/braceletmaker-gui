@@ -6,9 +6,9 @@ const SET_TYPE = 'scratch-gui/device/setType';
 const CLEAR_TYPE = 'scratch-gui/device/clearType';
 
 const initialState = {
-    deviceId: null,
-    deviceName: null,
-    deviceType: null
+    deviceId: "arduinoUno",
+    deviceName: "Arduino Uno",
+    deviceType: "arduino"
 };
 
 const reducer = function (state, action) {

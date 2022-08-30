@@ -45,7 +45,9 @@ const SpriteList = function (props) {
             <Box
                 className={styles.itemsWrapper}
             >
-                {items.map((sprite, index) => {
+                {[...items]
+                    .sort((current, next) => current.name > next.name ? 1 : -1)
+                    .map((sprite, index) => {
 
                     // If the sprite has just received a block drop, used for green highlight
                     const receivedBlocks = (

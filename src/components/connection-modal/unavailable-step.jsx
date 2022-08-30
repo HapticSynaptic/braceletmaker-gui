@@ -28,8 +28,8 @@ const UnavailableStep = props => (
                     </div>
                     <div className={styles.helpStepText}>
                         <FormattedMessage
-                            defaultMessage="Make sure you have OpenBlock Link installed and running"
-                            description="Message for getting OpenBlock Link installed"
+                            defaultMessage="Make sure you have Bracelet Maker Link installed and running"
+                            description="Message for getting Bracelet Maker Link installed"
                             id="gui.connection.unavailable.installscratchlink"
                         />
                     </div>

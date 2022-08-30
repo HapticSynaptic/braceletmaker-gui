@@ -198,3 +198,7 @@ $arrow-rounding: 0.125rem;
     top: $arrow-inset !important;
     transform: rotate(-45deg) !important;
 }
+
+[class*="action-menu_more-buttons-outer_"] {
+    display: none;
+}

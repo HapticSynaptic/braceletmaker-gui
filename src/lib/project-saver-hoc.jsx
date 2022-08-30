@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import VM from 'openblock-vm';
 
-import collectMetadata from '../lib/collect-metadata';
 import log from '../lib/log';
 import storage from '../lib/storage';
 import dataURItoBlob from '../lib/data-uri-to-blob';
@@ -67,13 +66,6 @@ const ProjectSaverHOC = function (WrappedComponent) {
             this.props.onSetProjectSaver(this.tryToAutoSave);
         }
         componentDidUpdate (prevProps) {
-            if (!this.props.isAnyCreatingNewState && prevProps.isAnyCreatingNewState) {
-                this.reportTelemetryEvent('projectWasCreated');
-            }
-            if (!this.props.isLoading && prevProps.isLoading) {
-                this.reportTelemetryEvent('projectDidLoad');
-            }
-
             if (this.props.projectChanged && !prevProps.projectChanged) {
                 this.scheduleAutoSave();
             }
@@ -251,7 +243,6 @@ const ProjectSaverHOC = function (WrappedComponent) {
                     if (id && this.props.onUpdateProjectThumbnail) {
                         this.storeProjectThumbnail(id);
                     }
-                    this.reportTelemetryEvent('projectDidSave');
                     return response;
                 })
                 .catch(err => {
@@ -284,24 +275,6 @@ const ProjectSaverHOC = function (WrappedComponent) {
                 callback(dataURI);
             });
             this.props.vm.renderer.draw();
-        }
-
-        /**
-         * Report a telemetry event.
-         * @param {string} event - one of `projectWasCreated`, `projectDidLoad`, `projectDidSave`, `projectWasUploaded`
-         */
-        // TODO make a telemetry HOC and move this stuff there
-        reportTelemetryEvent (event) {
-            try {
-                if (this.props.onProjectTelemetryEvent) {
-                    const metadata = collectMetadata(this.props.vm, this.props.reduxProjectTitle, this.props.locale);
-                    this.props.onProjectTelemetryEvent(event, metadata);
-                }
-            } catch (e) {
-                log.error('Telemetry error', event, e);
-                // This is intentionally fire/forget because a failure
-                // to report telemetry should not block saving
-            }
         }
 
         render () {
@@ -376,7 +349,6 @@ const ProjectSaverHOC = function (WrappedComponent) {
         onCreateProject: PropTypes.func,
         onCreatedProject: PropTypes.func,
         onProjectError: PropTypes.func,
-        onProjectTelemetryEvent: PropTypes.func,
         onRemixing: PropTypes.func,
         onSetProjectSaver: PropTypes.func.isRequired,
         onSetProjectThumbnailer: PropTypes.func.isRequired,

@@ -148,7 +148,7 @@ const UpdateModalComponent = props => (
                         <div className={classNames(styles.progressWrapper)}>
                             <ProgressBar
                                 completed={props.progressBarCompleted}
-                                bgColor="#4C97FF"
+                                bgColor="#9966ff"
                                 height="15px"
                             />
                             <div className={classNames(styles.upgradeInfoWrapper)}>

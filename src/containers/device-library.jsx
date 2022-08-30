@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 import {compose} from 'redux';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
 
-import analytics from '../lib/analytics';
 import {setDeviceData} from '../reducers/device-data';
 
 import {makeDeviceLibrary} from '../lib/libraries/devices/index.jsx';
@@ -80,11 +79,6 @@ class DeviceLibrary extends React.PureComponent {
                         this.props.vm.installDeviceExtensions(deviceExtensions);
                     });
                     this.props.onDeviceSelected(id);
-                    analytics.event({
-                        category: 'devices',
-                        action: 'select device',
-                        label: id
-                    });
                 });
             }
         }

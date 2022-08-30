@@ -18,7 +18,6 @@ import unFullScreenIcon from './icon--unfullscreen.svg';
 
 import signalIcon from './icon--signal.svg';
 
-import scratchLogo from '../menu-bar/scratch-logo.svg';
 import styles from './stage-header.css';
 
 const messages = defineMessages({
@@ -76,8 +75,8 @@ const StageHeaderComponent = function (props) {
                     target="_blank"
                 >
                     <img
-                        alt="OpenBlock"
-                        src={scratchLogo}
+                        alt="Bracelet Maker"
+                        src={logo}
                     />
                 </a>
             </div>
@@ -153,18 +152,6 @@ const StageHeaderComponent = function (props) {
             <Box className={styles.stageHeaderWrapper}>
                 <Box className={styles.stageMenuWrapper}>
                     <Controls vm={vm} />
-                    <Box
-                        className={classNames(
-                            styles.deviceRealtimeConnectionWrapper,
-                            (realtimeConnection) ? null : styles.deviceRealtimeConnectionOff
-                        )}
-                    >
-                        <img
-                            className={styles.signalIcon}
-                            draggable={false}
-                            src={signalIcon}
-                        />
-                    </Box>
                     <div className={styles.stageSizeRow}>
                         {stageControls}
                         <div>

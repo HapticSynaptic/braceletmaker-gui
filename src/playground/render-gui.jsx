@@ -27,19 +27,6 @@ const onClickClearCache = () => {
 const onClickInstallDriver = () => {
     log('User click install driver');
 };
-
-const handleTelemetryModalCancel = () => {
-    log('User canceled telemetry modal');
-};
-
-const handleTelemetryModalOptIn = () => {
-    log('User opted into telemetry');
-};
-
-const handleTelemetryModalOptOut = () => {
-    log('User opted out of telemetry');
-};
-
 const handleShowMessageBox = (type, message) => {
     if (type === MessageBoxType.confirm) {
         return confirm(message); // eslint-disable-line no-alert
@@ -92,11 +79,7 @@ export default appTarget => {
             <WrappedGui
                 canEditTitle
                 isScratchDesktop
-                showTelemetryModal
                 canSave={false}
-                onTelemetryModalCancel={handleTelemetryModalCancel}
-                onTelemetryModalOptIn={handleTelemetryModalOptIn}
-                onTelemetryModalOptOut={handleTelemetryModalOptOut}
                 onClickCheckUpdate={onClickCheckUpdate}
                 onClickUpgrade={onClickUpgrade}
                 onClickClearCache={onClickClearCache}

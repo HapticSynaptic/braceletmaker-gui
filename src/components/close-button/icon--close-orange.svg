@@ -12,7 +12,7 @@
                 <use xlink:href="#path-1"></use>
             </mask>
             <use id="close" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
-            <g id="Color/Tangerine/1_Tangerine" mask="url(#mask-2)" fill="#FF8C1A" fill-rule="evenodd">
+            <g id="Color/Tangerine/1_Tangerine" mask="url(#mask-2)" fill="#fdc611" fill-rule="evenodd">
                 <rect id="Color" x="0" y="0" width="20" height="20"></rect>
             </g>
         </g>

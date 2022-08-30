@@ -14,7 +14,7 @@ import ListMonitor from '../../containers/list-monitor.jsx';
 import styles from './monitor.css';
 
 const categories = {
-    data: '#FF8C1A',
+    data: '#fdc611',
     sensing: '#5CB1D6',
     sound: '#CF63CF',
     looks: '#9966FF',
