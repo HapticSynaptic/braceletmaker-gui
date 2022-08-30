@@ -4,7 +4,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 import {defineMessages, injectIntl, intlShape} from 'react-intl';
-import VM from 'openblock-vm';
+import VM from 'braceletmaker-vm';
 
 import sprites from '../lib/libraries/sprites.json';
 import backdropLibraryContent from '../lib/libraries/backdrops.json';

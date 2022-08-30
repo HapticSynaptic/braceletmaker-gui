@@ -8,7 +8,7 @@ import localesReducer, {initLocale, localesInitialState} from '../reducers/local
 
 import {setPlayer, setFullScreen} from '../reducers/mode.js';
 
-import locales from 'openblock-l10n';
+import locales from 'braceletmaker-l10n';
 import {detectLocale} from './detect-locale';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -52,7 +52,7 @@ const AppStateHOC = function (WrappedComponent, localesOnly) {
                     initFullScreen,
                     initPlayer
                 } = guiRedux;
-                const {ScratchPaintReducer} = require('scratch-paint');
+                const {ScratchPaintReducer} = require('braceletmaker-paint');
 
                 let initializedGui = guiInitialState;
                 if (props.isFullScreen || props.isPlayerOnly) {

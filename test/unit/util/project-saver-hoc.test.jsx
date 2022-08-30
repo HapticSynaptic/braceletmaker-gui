@@ -4,7 +4,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import {mount} from 'enzyme';
 import {LoadingState} from '../../../src/reducers/project-state';
-import VM from 'openblock-vm';
+import VM from 'braceletmaker-vm';
 
 import projectSaverHOC from '../../../src/lib/project-saver-hoc.jsx';
 

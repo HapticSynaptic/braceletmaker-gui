@@ -1,6 +1,6 @@
-import ScratchBlocks from 'openblock-blocks';
-import 'openblock-blocks/arduino_compressed';
-import 'openblock-blocks/python_compressed';
+import ScratchBlocks from 'braceletmaker-blocks';
+import 'braceletmaker-blocks/arduino_compressed';
+import 'braceletmaker-blocks/python_compressed';
 import iconv from 'iconv-lite';
 
 /**

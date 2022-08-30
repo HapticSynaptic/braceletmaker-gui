@@ -75,7 +75,7 @@ const WebGlModal = ({intl, ...props}) => (
                             previewFaqLink: (
                                 <a
                                     className={styles.faqLink}
-                                    href="//openblock.cc/faq"
+                                    href="//stembraceletmaker.com"
                                 >
                                     <FormattedMessage
                                         defaultMessage="FAQ"

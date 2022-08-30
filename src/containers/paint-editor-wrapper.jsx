@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import bindAll from 'lodash.bindall';
-import VM from 'openblock-vm';
-import PaintEditor from 'scratch-paint';
+import VM from 'braceletmaker-vm';
+import PaintEditor from 'braceletmaker-paint';
 import {inlineSvgFonts} from 'scratch-svg-renderer';
 
 import {connect} from 'react-redux';
