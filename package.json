@@ -1,6 +1,6 @@
 {
   "name": "@hapticsynaptic/braceletmaker-gui",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "GraphicaL User Interface for creating and running Bracelet Maker projects",
   "main": "./dist/scratch-gui.js",
   "scripts": {
@@ -33,10 +33,10 @@
     "autoprefixer": "^9.0.1",
     "base64-loader": "1.0.0",
     "bowser": "1.9.4",
-    "@hapticsynaptic/braceletmaker-blocks": "1.3.0",
-    "@hapticsynaptic/braceletmaker-l10n": "1.3.0",
-    "@hapticsynaptic/braceletmaker-paint": "1.3.0",
-    "@hapticsynaptic/braceletmaker-vm": "1.3.0",
+    "@hapticsynaptic/braceletmaker-blocks": "1.4.0",
+    "@hapticsynaptic/braceletmaker-l10n": "1.4.0",
+    "@hapticsynaptic/braceletmaker-paint": "1.4.0",
+    "@hapticsynaptic/braceletmaker-vm": "1.4.0",
     "classnames": "2.2.6",
     "computed-style-to-inline-style": "3.0.0",
     "copy-webpack-plugin": "^4.5.1",
