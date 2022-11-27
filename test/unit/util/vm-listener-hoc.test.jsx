@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import {mount} from 'enzyme';
-import VM from 'braceletmaker-vm';
+import VM from '@hapticsynaptic/braceletmaker-vm';
 
 import vmListenerHOC from '../../../src/lib/vm-listener-hoc.jsx';
 

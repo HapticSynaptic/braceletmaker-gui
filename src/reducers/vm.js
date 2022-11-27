@@ -1,4 +1,4 @@
-import VM from 'braceletmaker-vm';
+import VM from '@hapticsynaptic/braceletmaker-vm';
 import storage from '../lib/storage';
 
 const SET_VM = 'scratch-gui/vm/SET_VM';

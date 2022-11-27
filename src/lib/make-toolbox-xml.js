@@ -1,4 +1,4 @@
-import ScratchBlocks from 'braceletmaker-blocks';
+import ScratchBlocks from '@hapticsynaptic/braceletmaker-blocks';
 
 const categorySeparator = '<sep gap="36"/>';
 

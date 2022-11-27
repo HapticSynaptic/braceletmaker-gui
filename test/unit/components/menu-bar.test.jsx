@@ -6,7 +6,7 @@ import {LoadingState} from '../../../src/reducers/project-state';
 
 import configureStore from 'redux-mock-store';
 import {Provider} from 'react-redux';
-import VM from 'braceletmaker-vm';
+import VM from '@hapticsynaptic/braceletmaker-vm';
 
 
 describe('MenuBar Component', () => {

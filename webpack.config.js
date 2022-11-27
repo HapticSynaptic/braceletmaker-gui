@@ -176,7 +176,7 @@ module.exports = [
                 to: 'static'
             }]),
             new CopyWebpackPlugin([{
-                from: 'node_modules/braceletmaker-blocks/media',
+                from: 'node_modules/@hapticsynaptic/braceletmaker-blocks/media',
                 to: 'static/blocks-media'
             }]),
             new CopyWebpackPlugin([{
@@ -186,7 +186,7 @@ module.exports = [
             }]),
             new CopyWebpackPlugin([{
                 from: 'extension-worker.{js,js.map}',
-                context: 'node_modules/braceletmaker-vm/dist/web'
+                context: 'node_modules/@hapticsynaptic/braceletmaker-vm/dist/web'
             }])
         ])
     })
@@ -196,7 +196,7 @@ module.exports = [
         defaultsDeep({}, base, {
             target: 'web',
             entry: {
-                'braceletmaker-gui': './src/index.js'
+                '@hapticsynaptic/braceletmaker-gui': './src/index.js'
             },
             output: {
                 libraryTarget: 'umd',
@@ -221,12 +221,12 @@ module.exports = [
             },
             plugins: base.plugins.concat([
                 new CopyWebpackPlugin([{
-                    from: 'node_modules/braceletmaker-blocks/media',
+                    from: 'node_modules/@hapticsynaptic/braceletmaker-blocks/media',
                     to: 'static/blocks-media'
                 }]),
                 new CopyWebpackPlugin([{
                     from: 'extension-worker.{js,js.map}',
-                    context: 'node_modules/braceletmaker-vm/dist/web'
+                    context: 'node_modules/@hapticsynaptic/braceletmaker-vm/dist/web'
                 }]),
                 // Include library JSON files for scratch-desktop to use for downloading
                 new CopyWebpackPlugin([{

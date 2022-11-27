@@ -1,6 +1,6 @@
-import ScratchBlocks from 'braceletmaker-blocks';
-import 'braceletmaker-blocks/arduino_compressed';
-import 'braceletmaker-blocks/python_compressed';
+import ScratchBlocks from '@hapticsynaptic/braceletmaker-blocks';
+import '@hapticsynaptic/braceletmaker-blocks/arduino_compressed';
+import '@hapticsynaptic/braceletmaker-blocks/python_compressed';
 import iconv from 'iconv-lite';
 
 /**
