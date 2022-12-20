@@ -288,6 +288,7 @@ class MenuBar extends React.Component {
         }
     }
     handleConnectionMouseUp () {
+        this.props.vm.extensionManager.loadDeviceURL('arduinoUno', 'arduino', undefined);
         if (this.props.deviceId) {
             this.props.onOpenConnectionModal();
         } else {
